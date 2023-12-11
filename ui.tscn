@@ -1,0 +1,196 @@
+[gd_scene load_steps=5 format=3 uid="uid://e6k733in80wj"]
+
+[ext_resource type="Script" path="res://Status.gd" id="1_kajmv"]
+[ext_resource type="Script" path="res://Inventory.gd" id="2_5kcc4"]
+[ext_resource type="Script" path="res://Dagger.gd" id="2_71d7g"]
+[ext_resource type="Script" path="res://Longsword.gd" id="3_fdf3t"]
+
+[node name="UI" type="Control"]
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Main"]
+layout_mode = 2
+
+[node name="LeftMenu" type="GridContainer" parent="Main/HSplitContainer"]
+layout_mode = 2
+
+[node name="StatusButton" type="Button" parent="Main/HSplitContainer/LeftMenu"]
+layout_mode = 2
+text = "Status"
+script = ExtResource("1_kajmv")
+
+[node name="InventoryButton" type="Button" parent="Main/HSplitContainer/LeftMenu"]
+layout_mode = 2
+text = "Inventory
+"
+script = ExtResource("2_5kcc4")
+
+[node name="OptionsButton" type="Button" parent="Main/HSplitContainer/LeftMenu"]
+layout_mode = 2
+text = "Options"
+
+[node name="AllMenus" type="Control" parent="Main/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StatusMenu" type="Control" parent="Main/HSplitContainer/AllMenus"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_right = 1055.0
+offset_bottom = 650.0
+
+[node name="GridContainer" type="GridContainer" parent="Main/HSplitContainer/AllMenus/StatusMenu"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 4
+
+[node name="HealthLabel" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "Health:
+"
+
+[node name="HealthNum" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "100
+"
+
+[node name="ManaLabel" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "Mana:"
+
+[node name="ManaNum" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "50"
+
+[node name="PAttackLabel" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "Phys. Attack:
+"
+
+[node name="PAttackNum" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "10
+"
+
+[node name="MAttackLabel" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "Mag. Attack:
+"
+
+[node name="MAttackNum" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "10"
+
+[node name="PDefenseLabel" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "Phys. Defense: "
+
+[node name="PDefenseNum" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "10
+"
+
+[node name="MDefenseLabel" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "Mag. Defense:"
+
+[node name="MDefenseNum" type="Label" parent="Main/HSplitContainer/AllMenus/StatusMenu/GridContainer"]
+layout_mode = 2
+text = "10"
+
+[node name="InventoryMenu" type="Control" parent="Main/HSplitContainer/AllMenus"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_right = 1055.0
+offset_bottom = 650.0
+
+[node name="RightMenu" type="VSplitContainer" parent="Main/HSplitContainer/AllMenus/InventoryMenu"]
+layout_mode = 2
+offset_right = 1055.0
+offset_bottom = 650.0
+dragger_visibility = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/HSplitContainer"]
+layout_mode = 2
+
+[node name="ItemNameLabel" type="Label" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/HSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Name:"
+
+[node name="ItemDescLabel" type="Label" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/HSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Description:
+"
+
+[node name="ItemStatsLabel" type="Label" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/HSplitContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Modifiers:
+"
+
+[node name="FullItem" type="GridContainer" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/HSplitContainer"]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/HSplitContainer/FullItem"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ItemDesc" type="Label" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/HSplitContainer/FullItem"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ItemStats" type="Label" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/HSplitContainer/FullItem"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="ItemList" type="GridContainer" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 0
+columns = 4
+
+[node name="Dagger" type="Button" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 25)
+layout_direction = 2
+layout_mode = 2
+text = "Dagger
+"
+script = ExtResource("2_71d7g")
+
+[node name="Longsword" type="Button" parent="Main/HSplitContainer/AllMenus/InventoryMenu/RightMenu/ItemList"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 25)
+layout_direction = 2
+layout_mode = 2
+text = "Longsword
+"
+script = ExtResource("3_fdf3t")
